@@ -22,3 +22,11 @@
  * 
  * XMLHttpRequest is a method to receive and send data.
  */
+
+//topic: console.log
+/**
+ * console is not a part of core javascript. 
+ * console is a debugging tool.
+ * nodejs is a implementation of v8 engine. v8 engine is written in c++. v8 engine provides debugging tools, APIs. 
+ * www.github.com/v8/v8 -> src -> d8 -> d8.console.cc(console.log) and d8.console.h 
+ */
