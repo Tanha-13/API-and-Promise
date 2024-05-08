@@ -6,6 +6,34 @@
     <title>API Request</title>
 </head>
 <body>
-    
+    <div>
+        <button>Show User Image</button>
+    </div>
+
+    <script>
+        const requestURL = 'https://api.github.com/users/tanha-13';
+        const xhr = new XMLHttpRequest(); // create an object.
+        xhr.open('GET', requestURL);
+        xhr.onreadystatechange = function(){
+            console.log(xhr.readyState);
+            if(xhr.readyState === 4){
+                const data = JSON.parse(this.responseText);
+                console.log(data);
+                console.log(typeof data);
+                console.log(data.followers);
+                document.querySelector("button").addEventListener("click", () => {
+                    const img = document.createElement("img");
+                    img.src = data.avatar_url;
+                    img.style.width = '300px';
+
+                    const followerCount = document.createElement("h3");
+                    followerCount.innerHTML = `Total Follower: ${data.followers}`;
+                    document.body.appendChild(img);
+                    document.body.appendChild(followerCount);
+                })
+            }
+        }
+        xhr.send();
+    </script>
 </body>
 </html>
