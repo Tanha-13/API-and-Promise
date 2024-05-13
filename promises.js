@@ -45,21 +45,73 @@ const promiseFour = new Promise(function (resolve, reject) {
   setTimeout(() => {
     let error = false;
     if (!error) {
-      resolve({userName: "hitesh", password: "123"});
-    }
-    else{
-        reject('ERROR: Something went wrong');
+      resolve({ userName: "hitesh", password: "123" });
+    } else {
+      reject("ERROR: Something went wrong");
     }
   }, 1000);
 });
 
-promiseFour.then( (user) => {
+promiseFour
+  .then((user) => {
     console.log(user);
     return user.userName;
-}).then((userName) => {
+  })
+  .then((userName) => {
     console.log(userName);
-}).catch(function(error) {
+  })
+  .catch(function (error) {
     console.log(error);
-}).finally(function(){
+  })
+  .finally(function () {
     console.log("The promise is either resolved or rejected");
+  });
+
+//promise five
+const promiseFive = new Promise(function (resolve, reject) {
+  setTimeout(() => {
+    let error = true;
+    if (!error) {
+      resolve({
+        language: "Javascript",
+        password: "123",
+      });
+    } else {
+      reject("ERROR: JS went wrong");
+    }
+  }, 1000);
 });
+
+// async/await can not handle errors directly. use try catch.
+async function consumePromiseFive() {
+  try {
+    const response = await promiseFive;
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+}
+consumePromiseFive();
+
+// async function getAllUsers(){
+//   try{
+//     const response= await fetch("https://jsonplaceholder.typicode.com/users");
+//   // const data = JSON.parse(response);
+//   const data = await response.json();
+//   console.log(data);
+//   }
+//   catch(error){
+//     console.log(error);
+//   }
+// }
+
+// getAllUsers();
+
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => console.log(error));
