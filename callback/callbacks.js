@@ -4,3 +4,16 @@
  * 
  * Usage of callbacks in websites - event handling, asynchronous operations, AJAX requests, fetching data, loading resources like images or scripts dynamically, executing code after an action or operation, setTimeout, setInterval, data processing, error handling, Promises, async/await. 
  */
+
+const btn = document.querySelector("button");
+btn.addEventListener("click", greet);
+
+function greet(name, callback){
+    
+
+    sayGoodDay();
+}
+
+function sayGoodDay(){
+
+}
