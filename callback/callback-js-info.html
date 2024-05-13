@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real examples</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * real world examples of asynchronous actions using callbacks
+       *
+       */
+
+      // loading a script with the given src. It inserts into the document a new, dynamically created script tag with the given src. The browser will automatically starts loading it and executes when complete.
+
+      function loadScript(src, callback) {
+        const script = document.createElement("script");
+        script.src = src;
+
+        // the onload event executes the function after the script is loaded and executed. 
+        script.onload = () => callback(script);
+        document.head.appendChild(script);
+      }
+
+      // The script is executed asynchronously, as it starts loading now, but runs later when the function has already finished.
+      loadScript("./script.js", function(script){
+        alert(`script is loaded and src is ${script.src}`);
+      });
+      // the code below loadScript does not wait for the script loading to finish
+
+      // as of now, the loadScript function does not provide a way to track the load completion. For this, add a callback function as a second argument to loadScript that should execute when the script loads.
+
+
+
+    </script>
+  </body>
+</html>

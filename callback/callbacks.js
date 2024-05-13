@@ -1,5 +1,9 @@
 /**
- * A callback is a function that is passed as an argument to another function, and is called after the main function has finished it execution. Callbacks are used to make sure that certain code does not execute until parent functions code has already finished execution. It solely depends on the use-case where to call the callback function in the parent function.
+ * A callback is a function that is passed as an argument to another function, and is called after the main function has finished it execution. Callbacks are used to make sure that certain code does not execute until parent functions code has already finished execution. It solely depends on the use-case where to call the callback function in the parent function. 
+ * 
+ * Where callbacks really shine are in asynchronous functions, where one function has to wait for another function(like waiting for a file to load).
+ * 
+ * Callbacks help to develop asynchronous javascript code and keeps safe from problems and errors.
  *
  * Callbacks are used to handle the results of asynchronous operations in a non-blocking manner. Callbacks allows to continue executing code while the operation is being executed in the background. Once the operation has completed, the callback function is called with the result of the operation.
  * 
